@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-forge-bg text-forge-text antialiased;
+  min-height: 100dvh;
+}
+
+/* Terminal cursor blink */
+.cursor-blink::after {
+  content: "\u258b";
+  @apply text-forge-accent animate-pulse ml-0.5;
+}
+
+/* Soft glow for accent elements */
+.glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25), 0 0 60px rgba(99, 102, 241, 0.08);
+}
+
+.glow-text {
+  text-shadow: 0 0 24px rgba(129, 140, 248, 0.45);
+}
+
+/* Safe area for notched phones */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Hide scrollbar but keep scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
